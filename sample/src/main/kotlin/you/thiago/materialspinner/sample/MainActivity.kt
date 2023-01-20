@@ -76,7 +76,6 @@ class MainActivity : AppCompatActivity() {
         with(binding) {
             b1Clear.setOnClickListener {
                 materialSpinner1.selection = ListView.INVALID_POSITION
-                materialSpinner1.requestFocus()
             }
 
             b1Error.setOnClickListener {
@@ -89,8 +88,6 @@ class MainActivity : AppCompatActivity() {
 
             b2Clear.setOnClickListener {
                 materialSpinner2.selection = ListView.INVALID_POSITION
-                materialSpinner2.requestFocus()
-
             }
 
             b2Error.setOnClickListener {
@@ -103,8 +100,6 @@ class MainActivity : AppCompatActivity() {
 
             b3Clear.setOnClickListener {
                 materialSpinner3.selection = ListView.INVALID_POSITION
-                materialSpinner3.requestFocus()
-
             }
 
             b3Error.setOnClickListener {
