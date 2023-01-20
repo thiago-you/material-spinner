@@ -1,4 +1,4 @@
-package com.tiper
+package you.thiago.materialspinner
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
@@ -13,19 +13,18 @@ import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Parcel
 import android.os.Parcelable
-import android.support.annotation.ColorInt
-import android.support.annotation.ColorRes
-import android.support.annotation.DrawableRes
-import android.support.design.R.color.mtrl_textinput_default_box_stroke_color
-import android.support.design.widget.BottomSheetDialog
-import android.support.design.widget.TextInputEditText
-import android.support.design.widget.TextInputLayout
-import android.support.v4.content.res.ResourcesCompat
-import android.support.v4.graphics.drawable.DrawableCompat
-import android.support.v4.text.TextUtilsCompat
-import android.support.v4.view.AbsSavedState
-import android.support.v4.view.ViewCompat
-import android.support.v7.widget.ListPopupWindow
+import androidx.annotation.ColorInt
+import androidx.annotation.ColorRes
+import androidx.annotation.DrawableRes
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
+import androidx.core.content.res.ResourcesCompat
+import androidx.core.graphics.drawable.DrawableCompat
+import androidx.core.text.TextUtilsCompat
+import androidx.customview.view.AbsSavedState
+import androidx.core.view.ViewCompat
+import androidx.appcompat.widget.ListPopupWindow
 import android.text.InputType
 import android.util.AttributeSet
 import android.view.Gravity
@@ -41,7 +40,6 @@ import android.widget.ListAdapter
 import android.widget.ListView
 import android.widget.SpinnerAdapter
 import android.widget.TextView
-import com.tiper.materialspinner.R
 import java.util.Locale
 
 /**
@@ -91,7 +89,8 @@ open class MaterialSpinner @JvmOverloads constructor(
     /**
      * The view that will display the selected item.
      */
-    private val editText = TextInputEditText(getContext())
+    private val editText =
+        TextInputEditText(getContext())
 
     /**
      * Extended [android.widget.Adapter] that is the bridge between this Spinner and its data.
@@ -236,7 +235,7 @@ open class MaterialSpinner @JvmOverloads constructor(
                 intArrayOf(R.attr.colorControlActivated)
             ).run {
                 val activated = getColor(0, 0)
-                val normal = getContext().getColorCompat(mtrl_textinput_default_box_stroke_color)
+                val normal = getContext().getColorCompat(R.color.textinput_default_box_stroke_color)
                 recycle()
                 ColorStateList(
                     arrayOf(
@@ -421,7 +420,9 @@ open class MaterialSpinner @JvmOverloads constructor(
 
     @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
     override fun onSaveInstanceState(): Parcelable? {
-        return SavedState(super.onSaveInstanceState()).apply {
+        val state = super.onSaveInstanceState() ?: return null
+
+        return SavedState(state).apply {
             this.selection = this@MaterialSpinner.selection
             this.isShowingPopup = this@MaterialSpinner.popup.isShowing()
         }
@@ -678,7 +679,9 @@ open class MaterialSpinner @JvmOverloads constructor(
                 return
             }
 
-            popup = BottomSheetDialog(context).apply {
+            popup = BottomSheetDialog(
+                context
+            ).apply {
                 prompt?.let { prompt ->
                     setTitle(prompt)
                 }
@@ -739,19 +742,16 @@ open class MaterialSpinner @JvmOverloads constructor(
         private val adapter: SpinnerAdapter?,
         dropDownTheme: Resources.Theme?
     ) : ListAdapter, SpinnerAdapter {
-
-        private val listAdapter: ListAdapter?
+        private val listAdapter: ListAdapter? = when (val it = adapter) {
+            is ListAdapter -> it
+            else -> null
+        }
 
         init {
 
-            listAdapter = when (val it = adapter) {
-                is ListAdapter -> it
-                else -> null
-            }
-
             dropDownTheme?.let {
                 when (adapter) {
-                    is android.support.v7.widget.ThemedSpinnerAdapter -> {
+                    is androidx.appcompat.widget.ThemedSpinnerAdapter -> {
                         if (adapter.dropDownViewTheme != it) {
                             adapter.dropDownViewTheme = it
                         }

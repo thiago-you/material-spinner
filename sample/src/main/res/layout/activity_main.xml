@@ -13,7 +13,7 @@
         android:focusableInTouchMode="true"
         android:orientation="vertical"
         android:padding="8dp"
-        tools:context="com.tiper.materialspinner.sample.MainActivity">
+        tools:context="com.tiper.materialspinner.sample.you.tiper.materialspinner.sample.MainActivity">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -26,7 +26,8 @@
                 android:layout_gravity="start"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
-                android:text="clear" />
+                android:text="clear"
+                tools:ignore="HardcodedText" />
 
             <Button
                 android:id="@+id/b1_error"
@@ -35,17 +36,20 @@
                 android:layout_gravity="center"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
-                android:text="error" />
+                android:text="error"
+                tools:ignore="HardcodedText" />
 
             <Button
                 android:id="@+id/b1_click"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
-                android:text="click" />
+                android:text="click"
+                tools:ignore="HardcodedText" />
+
         </FrameLayout>
 
-        <com.tiper.MaterialSpinner
+        <you.thiago.materialspinner.MaterialSpinner
             android:id="@+id/material_spinner_1"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
@@ -65,7 +69,8 @@
                 android:layout_gravity="start"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
-                android:text="clear" />
+                android:text="clear"
+                tools:ignore="HardcodedText" />
 
             <Button
                 android:id="@+id/b2_error"
@@ -74,17 +79,20 @@
                 android:layout_gravity="center"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
-                android:text="error" />
+                android:text="error"
+                tools:ignore="HardcodedText" />
 
             <Button
                 android:id="@+id/b2_click"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
-                android:text="click" />
+                android:text="click"
+                tools:ignore="HardcodedText" />
+
         </FrameLayout>
 
-        <com.tiper.MaterialSpinner
+        <you.thiago.materialspinner.MaterialSpinner
             android:id="@+id/material_spinner_2"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
@@ -126,9 +134,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:text="click" />
+
         </FrameLayout>
 
-        <com.tiper.MaterialSpinner
+        <you.thiago.materialspinner.MaterialSpinner
             android:id="@+id/material_spinner_3"
             style="@style/AppTheme.Widget.Design.TextInputLayout"
             android:layout_width="match_parent"
@@ -147,7 +156,7 @@
             android:prompt="@string/app_name"
             android:spinnerMode="dialog" />
 
-        <android.support.v7.widget.AppCompatSpinner
+        <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/appCompatSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -157,4 +166,5 @@
             app:spinnerMode="bottomsheet" />
 
     </LinearLayout>
+
 </ScrollView>
