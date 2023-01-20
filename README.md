@@ -1,11 +1,7 @@
 # MaterialSpinner
 
-
-[![](https://jitpack.io/v/tiper/MaterialSpinner.svg)](https://jitpack.io/#tiper/MaterialSpinner)
-[![Kotlin Version](https://img.shields.io/badge/kotlin-1.3.61-blue.svg)](http://kotlinlang.org/)
-[![ktlint](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg)](https://ktlint.github.io/)
+[![Kotlin Version](https://img.shields.io/badge/kotlin-1.7.21-blue.svg)](http://kotlinlang.org/)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
-
 
 MaterialSpinner aims to provide a Material Design Spinner.
 
@@ -31,14 +27,14 @@ allprojects {
 ```
 
 Then, add the library to your module `build.gradle`
+
 ```gradle
 dependencies {
-    implementation 'com.github.tiper:MaterialSpinner:latest.release.here'
-    implementation 'com.android.support:design:android.design.version.here'
+    implementation 'com.github.thiago-you:material-spinner:1.0.0'
 }
 ```
 
-If your using the [Material Components for Android](https://github.com/material-components/material-components-android), make sure you have `android.useAndroidX=true` and `android.enableJetifier=true` in your _gradle.properties_ file!
+If your using the [Material Components for Android](https://github.com/material-components/material-components-android), make sure you have `android.useAndroidX=true` in your _gradle.properties_ file!
 
 ## Features
 - Quick way to select a value from a list.
@@ -52,11 +48,11 @@ If your using the [Material Components for Android](https://github.com/material-
 - RTL support.
 
 ## Usage
-There is a [sample](https://github.com/tiper/MaterialSpinner/tree/master/sample) provided which shows how to use the library, but for completeness, here is all that is required to get MaterialSpinner working:
+There is a [sample](https://github.com/thiago-you/material-spinner/tree/master/sample) provided which shows how to use the library, but for completeness, here is all that is required to get MaterialSpinner working:
 
 ### XML:
 ```xml
-<com.tiper.MaterialSpinner
+<you.thiago.MaterialSpinner
     android:id="@+id/material_spinner"
     android:layout_width="match_parent"
     android:layout_height="match_parent"/>
