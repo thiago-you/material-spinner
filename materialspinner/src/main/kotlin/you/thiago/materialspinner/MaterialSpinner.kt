@@ -434,12 +434,13 @@ open class MaterialSpinner @JvmOverloads constructor(
                 super.onRestoreInstanceState(state.superState)
                 selection = state.selection
                 if (state.isShowingPopup) {
-                    viewTreeObserver?.addOnGlobalLayoutListener(object :
-                        ViewTreeObserver.OnGlobalLayoutListener {
+                    viewTreeObserver?.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
+                        @Suppress("DEPRECATION")
                         override fun onGlobalLayout() {
                             if (!popup.isShowing()) {
                                 requestFocus()
                             }
+
                             if (Build.VERSION.SDK_INT > Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1) {
                                 viewTreeObserver?.removeOnGlobalLayoutListener(this)
                             } else {
