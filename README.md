@@ -52,7 +52,7 @@ There is a [sample](https://github.com/thiago-you/material-spinner/tree/master/s
 
 ### XML:
 ```xml
-<you.thiago.MaterialSpinner
+<you.thiago.materialspinner.MaterialSpinner
     android:id="@+id/material_spinner"
     android:layout_width="match_parent"
     android:layout_height="match_parent"/>
